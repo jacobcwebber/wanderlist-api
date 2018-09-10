@@ -16,6 +16,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "no-underscore-dangle": [1, { "allow": ["_id"] }]
   }
 }

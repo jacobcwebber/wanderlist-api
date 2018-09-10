@@ -13,7 +13,7 @@ function setup() {
   });
 }
 
-export default function sendConfirmationEmail(user) {
+export function sendConfirmationEmail(user) {
   const transport = setup();
   const email = {
     from,
@@ -23,6 +23,22 @@ export default function sendConfirmationEmail(user) {
     Welcome to Wanderlist. Please confirmation your email.
     
     ${user.generateConfirmationUrl()}
+    `
+  };
+
+  transport.sendMail(email);
+}
+
+export function sendResetPasswordEmail(user) {
+  const transport = setup();
+  const email = {
+    from,
+    to: user.email,
+    subject: "Reset Password",
+    text: `
+    To reset your password, follow the link below.
+    
+    ${user.generateResetPasswordLink()}
     `
   };
 
